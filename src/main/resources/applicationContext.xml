@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+       <context:annotation-config/>
+
+       <import resource="dataSourceConfigs.xml"/>
+
+       <bean id="sessionFactory"
+             class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+              <property name="dataSource" ref="dataSource"/>
+              <property name="packagesToScan" value="entity"/>
+              <property name="hibernateProperties">
+                     <props>
+                            <prop key="show_sql">true</prop>
+                            <prop key="dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                            <prop key="hbm2ddl.auto">create</prop>
+                            <prop key="useUnicode">true</prop>
+                            <prop key="hibernate.id.new_generator_mappings">false</prop>
+                     </props>
+              </property>
+       </bean>
+
+       <bean id = "transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+              <property name="sessionFactory" ref="sessionFactory"/>
+       </bean>
+
+       <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager"/>
+
+       <bean id = "categoryDAO" class="DAOs.CategoryDAO"/>
+       <bean id = "senseDAO" class="DAOs.SenseDAO"/>
+       <bean id = "wordDAO" class="DAOs.WordDAO"/>
+
+       <bean id = "categoryService" class="services.CategoryService">
+              <constructor-arg ref="categoryDAO"/>
+       </bean>
+       <bean id = "senseService" class="services.SenseService">
+              <constructor-arg ref="senseDAO"/>
+       </bean>
+       <bean id = "wordService" class="services.WordService">
+              <constructor-arg ref="wordDAO"/>
+       </bean>
+
+       <bean id = "dictionaryService" class="services.DictionaryService">
+              <constructor-arg ref="categoryService"/>
+              <constructor-arg ref="senseService"/>
+              <constructor-arg ref="wordService"/>
+       </bean>
+
+</beans>

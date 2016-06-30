@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+.main {
+    height: 100%;
+    min-width: 100%;
+    background: url('../img/firstBG.jpg') center repeat;
+    background-size: cover;
+}
+
+#mainText {
+    color: #f7f7f7;
+    font-size: 22px;
+    display: inline-block;
+}
+
+#reg, #auth {
+    display: inline-block;
+    background-color: rgba(247, 247, 247, .5);
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, .4);
+    text-align: center;
+}
+
+#forgotPassword {
+    display: inline-block;
+    position: absolute;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 130px;
+    margin-bottom: 10px;
+    color: rgba(38, 49, 98, .9);
+    cursor: pointer;
+}
+
+#forgotPassword:visited {
+    color: rgba(38, 49, 98, .9);
+}
+
+#firstTime {
+    color: rgba(32, 39, 72, .9);
+    font-family: "Segoe UI", sans-serif;
+}
+
+@media (min-width: 772px) {
+    #mainText {
+        width: 30%;
+        position: absolute;
+        top: 150px;
+        left: 15%;
+        margin-top: 100px;
+        color: #f7f7f7;
+    }
+
+    #reg, #auth {
+        width: 350px;
+        margin-left: 55%;
+    }
+
+    #reg {
+        margin-top: 20px;
+    }
+
+    #auth {
+        margin-top:70px;
+    }
+}
+
+@media (max-width: 771px) and (min-width: 400px) {
+    .main {
+        text-align: center;
+        height: 100%;
+    }
+
+    #mainText {
+        width: 80%;
+        margin-top: 20px;
+        margin-left: 10%;
+        font-size: 24px;
+        color: #f7f7f7;
+    }
+
+    #reg, #auth {
+        width: 380px;
+        margin: 0 auto;
+    }
+
+    #reg {
+        margin-top: 20px;
+    }
+
+    #auth {
+        margin-top: 30px;
+    }
+
+    #forgotPassword {
+        margin-left: 150px;
+    }
+}
+
+@media (max-width: 399px) and (min-width: 200px){
+    .main {
+        text-align: center;
+        height: 100%;
+    }
+
+    #mainText {
+        margin-top: 20px;
+    }
+
+    #reg, #auth {
+        width: 250px;
+        margin: 0 auto;
+    }
+
+    #reg {
+        margin-top: 20px;
+    }
+
+    #auth {
+        margin-top: 30px;
+    }
+
+    #forgotPassword {
+        margin-left: 60px;
+    }
+}
+
+@media (max-height: 435px) {
+
+    #reg, #auth {
+        width: 40%;
+        margin-left: 5%;
+        margin-top: 50px;
+    }
+
+    #forgotPassword {
+        margin-left: 10%;
+        display: inline-block;
+    }
+
+    #mainText {
+        width: 80%;
+        margin-left: 10%;
+        top: -90px;
+        font-size: 20px;
+        display: inline-block;
+    }
+}
+
+.input {
+    display: inline-block;
+    width: 90%;
+    margin: 2.5%;
+    padding: 2%;
+    background-color: rgba(255, 255, 255, .33);
+    border-radius: 5px;
+    outline: none;
+}
+
+.input:focus {
+    background-color: rgba(255, 255, 255, 0.92);
+    color: rgba(38, 49, 98, .9);
+}
+
+.button {
+    display: inline-block;
+    padding: 3%;
+    margin-top: 10px;
+    margin-left: 70%;
+    margin-bottom: 10px;
+    background-color: rgba(201, 148, 131, 0.74);
+    border: 0;
+    font-size: 16px;
+    color: #f7f7f7;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+.button:hover {
+    background-color: rgba(219, 122, 90, .9);
+}
